@@ -32,12 +32,11 @@ def gerar_planilha():
         
     wb = Workbook()
     ws = wb.active
-    ws.append(["Supino", "Agachamento", "Levantamento Terra", "Exercicios"])
+    ws.append(["Supino", "Agachamento", "Levantamento Terra"])
 
     treinos = Treino.query.all()
     for treino in treinos:
-        exercicios = ', '.join([exercicio.nome for exercicio in treino.exercicios])
-        ws.append([treino.supino, treino.agachamento, treino.lev_terra, exercicios])
+        ws.append([treino.supino, treino.agachamento, treino.lev_terra])
         
     # Diretório para salvar a planilha (dentro do diretório do projeto)
     gerar_planilhas = os.path.join(app.root_path, 'gerar_planilhas')
