@@ -1,0 +1,81 @@
+/* Estilo para centralizar o card */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Seu CSS existente */
+.card {
+  width: 350px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 10px;
+  font-family: Impact, fantasy;
+}
+
+.card-header {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  font-family: Impact, fantasy;
+}
+
+.card-header .number-header {
+  margin: 0;
+  font-size: 18px;
+  color: rgb(116, 114, 114);
+  font-family: Impact, fantasy;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 1px;
+
+}
+
+.form-group input[type="number"],
+.form-group input[type="number"],
+.form-group input[type="number"] {
+  width: 40%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Impact, fantasy;
+}
+
+.btn {
+  padding: 12px 24px;
+  margin-left: 13px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #25df14;
+  color: #757373;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  font-family: Impact, fantasy;
+}
+
+.btn:hover {
+  background-color: #575757;
+  color: #333;
+  font-family: Impact, fantasy;
+}

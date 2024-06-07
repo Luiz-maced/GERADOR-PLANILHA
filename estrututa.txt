@@ -1,0 +1,24 @@
+app = Flask(__name__)
+
+A linha app = Flask(__name__) está criando uma nova instância da classe Flask, que é o núcleo do aplicativo web.
+Vamos dividir isso:
+
+Flask é a classe principal do framework Flask. Ela é usada para criar uma nova aplicação web.
+__name__ é uma variável especial disponível em Python que representa o nome do módulo atual. Em um script que está sendo executado diretamente, __name__ será igual a '__main__'. Se o script está sendo importado como um módulo em outro script, __name__ será igual ao nome do arquivo do script (sem a extensão .py).
+app = Flask(__name__) está criando uma nova instância da classe Flask e atribuindo-a à variável app. A instância do Flask é usada para definir rotas e configurar o aplicativo.
+O argumento __name__ é usado para que o Flask saiba onde procurar por recursos como templates e arquivos estáticos. Em resumo, essa linha está configurando a base para a criação do seu aplicativo web com Flask.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+app.config['SQLALCHEMY_DATABASE_URI'] = r'sqlite:////C:/DB-uruk/uruk.db'
+
+Essa linha de código está configurando a URI (Uniform Resource Identifier) do banco de dados para o SQLAlchemy, que é uma biblioteca Python para interação com bancos de dados SQL.
+
+Vamos dividir isso:
+
+app.config é um objeto de configuração do Flask que permite que você defina várias configurações para o seu aplicativo Flask. Você pode acessar e modificar essas configurações como se fossem um dicionário em Python.
+'SQLALCHEMY_DATABASE_URI' é uma configuração específica para o SQLAlchemy que define a localização do banco de dados que o SQLAlchemy deve usar.
+r'sqlite:////C:/DB-uruk/uruk.db' é a URI do banco de dados. Neste caso, está dizendo ao SQLAlchemy para usar um banco de dados SQLite e que o banco de dados está localizado no arquivo /tmp/test.db.
+Portanto, app.config['SQLALCHEMY_DATABASE_URI'] = 'r'sqlite:////C:/DB-uruk/uruk.db'' está dizendo ao Flask e ao SQLAlchemy para usar um banco de dados SQLite localizado em r'sqlite:////C:/DB-uruk/uruk.db' para todas as operações de banco de dados.
+OBS: Adicionar um r antes da string para torná-la uma string bruta, o que impede o Python de tratar a barra invertida como um caractere de escape
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

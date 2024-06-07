@@ -1,0 +1,130 @@
+.icon-conatiner {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 20px 20px 15px 0 #776f6f4d;
+    cursor: pointer;
+    font-family: Impact, fantasy;
+  }
+  
+  .icon-conatiner svg {
+    width: 16px;
+    height: auto;
+    font-family: Impact, fantasy;
+  }
+  
+  .icon-conatiner svg:last-child {
+    position: absolute;
+  }
+  
+  .icon-conatiner:active {
+    animation: press 0.2s 1 linear;
+  }
+  
+  .icon-conatiner:active svg:last-child {
+    animation: bounce 0.2s 1 linear;
+  }
+  
+  .text {
+    color: #666;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    user-select: none;
+    font-family: Impact, fantasy;
+  }
+  
+  @keyframes press {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.92);
+    }
+  
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounce {
+    50% {
+      transform: rotate(5deg) translate(20px, -50px);
+    }
+  
+    to {
+      transform: scale(0.9) rotate(10deg) translate(50px, -80px);
+      opacity: 0;
+    }
+  }
+  
+
+  .button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+    
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button:hover {
+    background: #34974d;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active .button__icon {
+    background-color: #2e8644;
+  }
+  
+  .button:active {
+    border: 1px solid #2e8644;
+  }
+
+
+
+
