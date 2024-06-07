@@ -8,12 +8,13 @@ from flask import current_app as app  # Usar a instância do aplicativo
 
 @app.route('/adicionar_planilha', methods=['GET', 'POST'])
 def adicionar_planilha():
+    semana      = request.form.get('semana')
     agachamento = request.form.get('agachamento')
-    supino = request.form.get('supino')
-    lev_terra = request.form.get('lev_terra')
+    supino      = request.form.get('supino')
+    lev_terra   = request.form.get('lev_terra')
 
-    if agachamento and supino and lev_terra:
-        novo_treino = Treino(agachamento=agachamento, supino=supino, lev_terra=lev_terra)
+    if semana and agachamento and supino and lev_terra:
+        novo_treino = Treino(semana=semana, agachamento=agachamento, supino=supino, lev_terra=lev_terra)
         db.session.add(novo_treino)
         db.session.commit()
         return redirect(url_for('home'))
@@ -32,11 +33,11 @@ def gerar_planilha():
         
     wb = Workbook()
     ws = wb.active
-    ws.append(["Supino", "Agachamento", "Levantamento Terra"])
+    ws.append([ "Semana", "Agachamento", "Supino", "Levantamento Terra"])
 
     treinos = Treino.query.all()
     for treino in treinos:
-        ws.append([treino.supino, treino.agachamento, treino.lev_terra])
+        ws.append([treino.semana, treino.agachamento, treino.supino, treino.lev_terra])
         
     # Diretório para salvar a planilha (dentro do diretório do projeto)
     gerar_planilhas = os.path.join(app.root_path, 'gerar_planilhas')
