@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, url_for, send_file
 from . import db
 from .models import Treino
-import tempfile
 from openpyxl import Workbook
 import os
 
@@ -39,8 +38,13 @@ def gerar_planilha():
     for treino in treinos:
         exercicios = ', '.join([exercicio.nome for exercicio in treino.exercicios])
         ws.append([treino.supino, treino.agachamento, treino.lev_terra, exercicios])
+        
+    # Diretório para salvar a planilha (dentro do diretório do projeto)
+    gerar_planilhas = os.path.join(app.root_path, 'gerar_planilhas')
+    if not os.path.exists(gerar_planilhas):
+     os.makedirs(gerar_planilhas)
 
-    wb_path = "planilha_de_treinos.xlsx"
+    wb_path = os.path.join(gerar_planilhas, "planilha_de_treinos.xlsx")
     wb.save(wb_path)
 
     # Excluir os registros da tabela após o download da planilha
