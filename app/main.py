@@ -1,4 +1,4 @@
-from flask import Flask, send_file, render_template, request, redirect, url_for
+from flask import Flask, send_file, render_template, request, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from openpyxl import Workbook
 import os
@@ -37,6 +37,11 @@ def adicionar_planilha():
         return redirect(url_for('home'))
 
     return render_template('preenche-planilha.html', error="Agachamento, Supino e Levantamento Terra são obrigatórios.")
+#arquivo para impedir invasoes como Wget
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.static_folder, 'robots.txt')
+
 
 @app.route('/', methods=['GET'])
 def home():
