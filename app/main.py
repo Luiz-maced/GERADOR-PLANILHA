@@ -38,7 +38,7 @@ def adicionar_planilha():
 
     return render_template('preenche-planilha.html', error="Agachamento, Supino e Levantamento Terra são obrigatórios.")
 
-@app.route('/menu', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return render_template('menu.html')
 
