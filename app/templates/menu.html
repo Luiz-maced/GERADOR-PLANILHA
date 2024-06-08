@@ -25,9 +25,11 @@
                       </button>
                 </a>
             </div>
+            <small class="version">Version 1.1.0</small>
          </form>
         </div>
       </div>
+    
  
 
     <a href="{{ url_for('gerar_planilha') }}">
@@ -58,5 +60,27 @@
             </svg>
         </div>
     </a>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1; /* Cor de fundo opcional para o rodapé */
+        }
+        .footer-text {
+            font-size: 0.8rem; /* Ajuste o tamanho do texto conforme necessário */
+        }
+    </style>
+    <!-- Rodapé -->
+    <footer>
+        <p class="footer-text"><small>&copy; 2024 LuizMacedo. Todos os direitos reservados.</small></p>
+    </footer>
 </body>
 </html>

@@ -30,7 +30,7 @@ def adicionar_planilha():
     supino      = request.form.get('supino')
     lev_terra   = request.form.get('lev_terra')
 
-    if agachamento and supino and lev_terra:
+    if semana and agachamento and supino and lev_terra:
         novo_treino = Treino(semana=semana, agachamento=agachamento, supino=supino, lev_terra=lev_terra)
         db.session.add(novo_treino)
         db.session.commit()
@@ -46,16 +46,16 @@ def home():
 def gerar_planilha():
     # Verificar se o banco de dados está populado
     if not Treino.query.first():
-        return "O banco de dados está vazio. Não há dados para baixar."
+        return "O banco de dados está vazio, por favor, alimente o formulario antes de clicar para gerar a planilha!."
 
     wb = Workbook()
     ws = wb.active
     ws.append(["semana", "Agachamento", "Supino", "Levantamento Terra"])
-
+    
     treinos = Treino.query.all()
     for treino in treinos:
         ws.append([treino.semana, treino.agachamento, treino.supino, treino.lev_terra])
-
+        
     wb_path = "planilha_de_treinos.xlsx"
     wb.save(wb_path)
 
